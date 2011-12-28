@@ -10,7 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tetrasi.session.MonEjbRemote;
+import com.tetrasi.session.MyEjbRemote;
 
 /**
  * Servlet implementation class for Servlet: MyServlet
@@ -32,9 +32,9 @@ import com.tetrasi.session.MonEjbRemote;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			Context ctx =new InitialContext();
-			Object obj=ctx.lookup("MonEjb/remote");
+			Object obj=ctx.lookup("MyEjb/remote");
 			if(obj!=null){
-				MonEjbRemote realObject=(MonEjbRemote) obj;
+				MyEjbRemote realObject=(MyEjbRemote) obj;
 				String result=realObject.afficheHello();
 				PrintWriter pw=response.getWriter();
 				System.out.println(result);
